@@ -29,23 +29,28 @@ fun HomeScreen(
 
     if(state.isLoading){
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             CircularProgressIndicator()
         }
     }
     else if (state.passwords.isEmpty()) {
-        Column {
-            Image(painter = painterResource(id = R.drawable.lock), contentDescription = null)
-            Text(
-                text = "you don't have any passwords yet, you can create new one using + Button below",
-                style = MaterialTheme.typography.headlineLarge
-            )
+        Box(
+            modifier = modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Column(modifier = modifier) {
+                Image(painter = painterResource(id = R.drawable.lock), contentDescription = null)
+                Text(
+                    text = "you don't have any passwords yet, you can create new one using + Button below",
+                    style = MaterialTheme.typography.labelLarge
+                )
+            }
         }
     }
     else {
-        LazyColumn {
+        LazyColumn(modifier = modifier) {
             items(state.passwords) {
                 PasswordListItem(
                     it,
