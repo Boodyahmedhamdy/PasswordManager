@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">PasswordManager</string>
+    <string name="home">Home</string>
+    <string name="copy_password">copy password</string>
 </resources>
