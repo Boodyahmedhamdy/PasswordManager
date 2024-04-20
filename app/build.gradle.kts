@@ -78,8 +78,19 @@ dependencies {
     // hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+    // room db
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.room.compiler)
+    // To use Kotlin annotation processing tool (kapt)
+    kapt(libs.androidx.room.room.compiler)
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation(libs.androidx.room.ktx)
 
-    
+    // navigation
+    implementation(libs.androidx.navigation.compose)
+    // navigation with hilt
+    implementation(libs.androidx.hilt.navigation.compose)
+
 }
 
 // Allow references to generated code

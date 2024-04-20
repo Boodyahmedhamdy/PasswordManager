@@ -1,29 +1,29 @@
-<mxfile host="Electron" modified="2024-04-15T15:26:07.910Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="vvtPC9MliGMgF5iQPrPA" version="22.1.21" type="device">
+<mxfile host="Electron" modified="2024-04-20T08:11:34.781Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.21 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="K0xC6PC--c5t7jKH6Zqx" version="22.1.21" type="device">
   <diagram name="Page-1" id="8uj4YBG_6Fy-fHMhQkFn">
-    <mxGraphModel dx="1750" dy="1048" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="1">
+    <mxGraphModel dx="767" dy="455" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" edge="1" parent="1" source="NYvXqj-vx_pf95k0y-rS-1" target="NYvXqj-vx_pf95k0y-rS-2">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" parent="1" source="NYvXqj-vx_pf95k0y-rS-1" target="NYvXqj-vx_pf95k0y-rS-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-4" value="when user clicks on generate password FAB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" vertex="1" connectable="0" parent="NYvXqj-vx_pf95k0y-rS-3">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-4" value="when user clicks on generate password FAB" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" parent="NYvXqj-vx_pf95k0y-rS-3" vertex="1" connectable="0">
           <mxGeometry x="-0.0724" y="-1" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-1" value="HomeScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" vertex="1" parent="1">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-1" value="HomeScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" parent="1" vertex="1">
           <mxGeometry x="300" y="320" width="180" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" edge="1" parent="1" source="NYvXqj-vx_pf95k0y-rS-2" target="NYvXqj-vx_pf95k0y-rS-5">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" parent="1" source="NYvXqj-vx_pf95k0y-rS-2" target="NYvXqj-vx_pf95k0y-rS-5" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-7" value="when click generate button" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" vertex="1" connectable="0" parent="NYvXqj-vx_pf95k0y-rS-6">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-7" value="when click generate button" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" parent="NYvXqj-vx_pf95k0y-rS-6" vertex="1" connectable="0">
           <mxGeometry x="-0.0027" y="2" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" edge="1" parent="1" source="NYvXqj-vx_pf95k0y-rS-2" target="NYvXqj-vx_pf95k0y-rS-1">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" parent="1" source="NYvXqj-vx_pf95k0y-rS-2" target="NYvXqj-vx_pf95k0y-rS-1" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="210" y="600" />
@@ -31,24 +31,104 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-11" value="when user click back button" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" vertex="1" connectable="0" parent="NYvXqj-vx_pf95k0y-rS-10">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-11" value="when user click back button" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" parent="NYvXqj-vx_pf95k0y-rS-10" vertex="1" connectable="0">
           <mxGeometry x="-0.2263" y="-8" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-2" value="GeneratePasswordScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" vertex="1" parent="1">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-2" value="GeneratePasswordScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" parent="1" vertex="1">
           <mxGeometry x="470" y="570" width="270" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;shadow=1;" edge="1" parent="1" source="NYvXqj-vx_pf95k0y-rS-5" target="NYvXqj-vx_pf95k0y-rS-1">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;shadow=1;" parent="1" source="NYvXqj-vx_pf95k0y-rS-5" target="NYvXqj-vx_pf95k0y-rS-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-9" value="when click approve&amp;nbsp;&lt;br&gt;returns with a new generated password in the list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" vertex="1" connectable="0" parent="NYvXqj-vx_pf95k0y-rS-8">
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-9" value="when click approve&amp;nbsp;&lt;br&gt;returns with a new generated password in the list" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" parent="NYvXqj-vx_pf95k0y-rS-8" vertex="1" connectable="0">
           <mxGeometry x="-0.2112" y="10" relative="1" as="geometry">
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="NYvXqj-vx_pf95k0y-rS-5" value="PreviewPasswordScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" vertex="1" parent="1">
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=16;curved=1;" edge="1" parent="1" source="NYvXqj-vx_pf95k0y-rS-5" target="NYvXqj-vx_pf95k0y-rS-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-17" value="when click generate another" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontFamily=Architects Daughter;labelBorderColor=default;" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-16">
+          <mxGeometry x="0.4611" y="-24" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="NYvXqj-vx_pf95k0y-rS-5" value="PreviewPasswordScreen" style="rounded=0;whiteSpace=wrap;html=1;sketch=1;hachureGap=4;jiggle=2;curveFitting=1;fontFamily=Architects Daughter;fontSource=https%3A%2F%2Ffonts.googleapis.com%2Fcss%3Ffamily%3DArchitects%2BDaughter;fontSize=20;fillStyle=hachure;fillColor=#B3B3B3;" parent="1" vertex="1">
           <mxGeometry x="780" y="790" width="270" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-20" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XrkdZDe2Wo22esdjeQyc-18" target="XrkdZDe2Wo22esdjeQyc-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-33" value="when user clicks on FAB to add" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-20">
+          <mxGeometry x="-0.3993" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-25" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="XrkdZDe2Wo22esdjeQyc-18" target="XrkdZDe2Wo22esdjeQyc-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2520" y="970" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-32" value="when user clicks on a password" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-25">
+          <mxGeometry x="-0.1604" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-18" value="home screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2220" y="940" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-23" value="Generate Password Graph" style="swimlane;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2180" y="1150" width="200" height="280" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-19" value="password configuration screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-23">
+          <mxGeometry x="40" y="50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-21" value="password preview screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-23">
+          <mxGeometry x="40" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-22" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XrkdZDe2Wo22esdjeQyc-23" source="XrkdZDe2Wo22esdjeQyc-19" target="XrkdZDe2Wo22esdjeQyc-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-30" value="Password Details Graph" style="swimlane;horizontal=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2640" y="870" width="690" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XrkdZDe2Wo22esdjeQyc-30" source="XrkdZDe2Wo22esdjeQyc-26" target="XrkdZDe2Wo22esdjeQyc-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-41" value="onFailure" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-40">
+          <mxGeometry x="-0.0021" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-26" value="security screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-30">
+          <mxGeometry x="80" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XrkdZDe2Wo22esdjeQyc-30" source="XrkdZDe2Wo22esdjeQyc-28" target="XrkdZDe2Wo22esdjeQyc-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-37" value="onEditButtonClick" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-36">
+          <mxGeometry x="-0.045" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-28" value="password details screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-30">
+          <mxGeometry x="320" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XrkdZDe2Wo22esdjeQyc-30" source="XrkdZDe2Wo22esdjeQyc-26" target="XrkdZDe2Wo22esdjeQyc-28">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-38" value="onSuccess" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XrkdZDe2Wo22esdjeQyc-29">
+          <mxGeometry x="-0.2222" relative="1" as="geometry">
+            <mxPoint y="-20" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-35" value="password edit screen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-30">
+          <mxGeometry x="550" y="10" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XrkdZDe2Wo22esdjeQyc-39" value="ErrorScreen" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="XrkdZDe2Wo22esdjeQyc-30">
+          <mxGeometry x="320" y="120" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
