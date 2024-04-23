@@ -1,5 +1,13 @@
 package com.example.passwordmanager
 
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -32,13 +40,19 @@ import com.example.passwordmanager.presentation.screens.PasswordEditScreen
 import com.example.passwordmanager.presentation.screens.PasswordPreviewScreen
 import com.example.passwordmanager.presentation.screens.ScreenRoutes
 import com.example.passwordmanager.presentation.screens.SecurityGateScreen
+import com.example.passwordmanager.presentation.states.PasswordConfigurationScreenUiState
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
+import com.example.passwordmanager.presentation.viewmodels.PasswordGenerationViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PasswordManagerApp() {
     val viewmodel: HomeScreenViewModel = hiltViewModel()
     val state = viewmodel.state.collectAsState()
+
+    val passwordGenerationViewModel: PasswordGenerationViewModel = hiltViewModel()
+    val passwordGenerationState = passwordGenerationViewModel.state.collectAsState()
+
     val navController = rememberNavController()
     Scaffold(
         topBar = {
@@ -47,7 +61,9 @@ fun PasswordManagerApp() {
             }) },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { /*TODO: add new password from viewmodel*/ }
+                onClick = {
+                    navController.navigate(ScreenRoutes.PasswordConfigurationScreen.route)
+                }
             ) {
                 Icon(imageVector = Icons.Default.Add, contentDescription = "add new password")
             }
@@ -96,7 +112,19 @@ fun PasswordManagerApp() {
             startDestination = ScreenRoutes.HomeScreen.route
         ) {
             // home
-            composable(ScreenRoutes.HomeScreen.route) {
+            composable(
+                ScreenRoutes.HomeScreen.route,
+                enterTransition = {
+                    slideInVertically(
+                        tween(2000)
+                    ) + fadeIn(tween(2000))
+                },
+                exitTransition = {
+                    slideOutVertically(
+                        tween(2000)
+                    ) + fadeOut(tween(2000))
+                }
+            ) {
                 HomeScreen(
                     state = state.value,
                     onPasswordListItemClicked = { /*TODO*/ },
@@ -119,8 +147,40 @@ fun PasswordManagerApp() {
             }
 
             // config
-            composable(ScreenRoutes.PasswordConfigurationScreen.route) {
-                PasswordConfigurationScreen()
+            composable(
+                ScreenRoutes.PasswordConfigurationScreen.route,
+                enterTransition = {
+                    slideInVertically(
+                        tween(2000)
+                    ) + fadeIn(tween(2000))
+                },
+                exitTransition = {
+                    slideOutVertically(tween(2000)) + fadeOut(tween(2000))
+                }
+            ) {
+                PasswordConfigurationScreen(
+                    state = passwordGenerationState.value,
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize(),
+                    onConfigurationLengthChanged = {
+                        // error when gives empty string or when values in text field is cleared
+                        try {
+                            passwordGenerationViewModel.updateLength(it.toInt())
+                        } catch(e: Exception) {
+                            passwordGenerationViewModel.updateLength(0)
+                        }
+                    },
+                    onConfigurationHasNumbersChanged = {
+                        passwordGenerationViewModel.updateHasNumbers(it)
+                    },
+                    onConfigurationCaseSensitiveChanged = {
+                        passwordGenerationViewModel.updateCaseSensitive(it)
+                    },
+                    onConfigurationHasSpecialCharactersChanged = {
+                        passwordGenerationViewModel.updateSpecialCharacters(it)
+                    }
+                )
             }
 
             // preview
