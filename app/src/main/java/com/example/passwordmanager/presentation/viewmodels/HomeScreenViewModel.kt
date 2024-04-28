@@ -29,19 +29,27 @@ class HomeScreenViewModel @Inject constructor(
 
 
     init {
-
         viewModelScope.launch {
+            updateIsLoading(true)
             withContext(Dispatchers.IO) {
                 val passwords = getAllPasswordsUseCase.invoke()
                 withContext(Dispatchers.Main) {
                     updatePasswords(passwords.map {
                         PasswordUiState(id = it.id, label = it.label, content = it.content, imagePath = it.imagePath)
                     })
+                    updateIsLoading(false)
                 }
             }
         }
     }
 
+    private fun updateIsLoading(isLoading: Boolean) {
+        _state.update {
+            it.copy(
+                isLoading = isLoading
+            )
+        }
+    }
     private fun updatePasswords(passwords: List<PasswordUiState>) {
         _state.update {
             it.copy(
