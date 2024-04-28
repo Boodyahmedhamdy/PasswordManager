@@ -1,12 +1,9 @@
 package com.example.passwordmanager
 
-import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideInVertically
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -29,7 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -40,7 +36,6 @@ import com.example.passwordmanager.presentation.screens.PasswordEditScreen
 import com.example.passwordmanager.presentation.screens.PasswordPreviewScreen
 import com.example.passwordmanager.presentation.screens.ScreenRoutes
 import com.example.passwordmanager.presentation.screens.SecurityGateScreen
-import com.example.passwordmanager.presentation.states.PasswordConfigurationScreenUiState
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
 import com.example.passwordmanager.presentation.viewmodels.PasswordGenerationViewModel
 
@@ -159,7 +154,7 @@ fun PasswordManagerApp() {
                 }
             ) {
                 PasswordConfigurationScreen(
-                    state = passwordGenerationState.value,
+                    state = passwordGenerationState.value.passwordConfigurationScreenUiState,
                     modifier = Modifier
                         .padding(paddingValues)
                         .fillMaxSize(),
@@ -179,13 +174,20 @@ fun PasswordManagerApp() {
                     },
                     onConfigurationHasSpecialCharactersChanged = {
                         passwordGenerationViewModel.updateSpecialCharacters(it)
+                    },
+                    onClickGenerate = {
+                        navController.navigate(ScreenRoutes.PasswordPreviewScreen.route)
+                        passwordGenerationViewModel.generatePassword(it)
                     }
                 )
             }
 
             // preview
             composable(ScreenRoutes.PasswordPreviewScreen.route) {
-                PasswordPreviewScreen()
+                PasswordPreviewScreen(
+                    state = passwordGenerationState.value.passwordPreviewScreenUiState,
+                    modifier = Modifier.padding(paddingValues)
+                )
             }
         }
     }
