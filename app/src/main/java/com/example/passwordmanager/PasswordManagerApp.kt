@@ -29,6 +29,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.passwordmanager.data.PasswordDAO
 import com.example.passwordmanager.presentation.screens.HomeScreen
 import com.example.passwordmanager.presentation.screens.PasswordConfigurationScreen
 import com.example.passwordmanager.presentation.screens.PasswordDetailsScreen
@@ -186,7 +187,16 @@ fun PasswordManagerApp() {
             composable(ScreenRoutes.PasswordPreviewScreen.route) {
                 PasswordPreviewScreen(
                     state = passwordGenerationState.value.passwordPreviewScreenUiState,
-                    modifier = Modifier.padding(paddingValues)
+                    modifier = Modifier.padding(paddingValues),
+                    onClickReGenerate = {
+                        passwordGenerationViewModel.generatePassword(
+                            passwordGenerationState.value.passwordConfigurationScreenUiState.configuration
+                        )
+                    },
+                    onClickSavePassword = {
+                        passwordGenerationViewModel.savePassword(it)
+                        navController.navigate(ScreenRoutes.HomeScreen.route)
+                    }
                 )
             }
         }
