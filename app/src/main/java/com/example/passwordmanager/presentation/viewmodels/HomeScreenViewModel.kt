@@ -3,6 +3,7 @@ package com.example.passwordmanager.presentation.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.passwordmanager.domain.usecases.GetAllPasswordsUseCase
+import com.example.passwordmanager.mappers.toUiState
 import com.example.passwordmanager.presentation.states.HomeScreenUiState
 import com.example.passwordmanager.presentation.states.PasswordUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +36,7 @@ class HomeScreenViewModel @Inject constructor(
                 val passwords = getAllPasswordsUseCase.invoke()
                 withContext(Dispatchers.Main) {
                     updatePasswords(passwords.map {
-                        PasswordUiState(id = it.id, label = it.label, content = it.content, imagePath = it.imagePath)
+                        it.toUiState()
                     })
                     updateIsLoading(false)
                 }
