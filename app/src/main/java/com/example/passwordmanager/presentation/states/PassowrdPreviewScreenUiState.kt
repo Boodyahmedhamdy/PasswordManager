@@ -2,5 +2,6 @@ package com.example.passwordmanager.presentation.states
 
 
 data class PasswordPreviewScreenUiState(
-    val password: String = ""
+    val showAlertDialog: Boolean = false,
+    val password: PasswordUiState = PasswordUiState()
 )
