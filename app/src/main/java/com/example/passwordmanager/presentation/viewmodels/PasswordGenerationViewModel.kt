@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.passwordmanager.domain.models.PasswordBuilder
 import com.example.passwordmanager.domain.models.PasswordGenerationConfiguration
 import com.example.passwordmanager.domain.usecases.SavePasswordUseCase
+import com.example.passwordmanager.mappers.toDomain
 import com.example.passwordmanager.presentation.states.PasswordGenerationUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -25,10 +26,12 @@ class PasswordGenerationViewModel @Inject constructor(
     val state = _state.asStateFlow()
 
 
-    fun savePassword(password: String) {
+    fun savePassword() {
         viewModelScope.launch {
             withContext(Dispatchers.IO) {
-                savePasswordUseCase(password)
+                savePasswordUseCase(
+                    state.value.passwordPreviewScreenUiState.password.toDomain()
+                )
             }
         }
     }
@@ -39,17 +42,47 @@ class PasswordGenerationViewModel @Inject constructor(
         updateGeneratedPassword(password)
     }
 
-    fun updateGeneratedPassword(newPassword: String) {
+    // updates ui -- preview screen
+    fun updateGeneratedPasswordLabel(newLabel: String) {
         _state.update {
             it.copy(
                 passwordPreviewScreenUiState = it.passwordPreviewScreenUiState.copy(
-                    password = newPassword
+                    password = it.passwordPreviewScreenUiState.password.copy(
+                        label = newLabel
+                    )
                 )
             )
         }
     }
 
-    // configuration updates
+    fun showAlertDialog() {
+        updateShowAlertDialog(true)
+    }
+    fun hideAlertDialog() {
+        updateShowAlertDialog(false)
+    }
+    private fun updateShowAlertDialog(newShow: Boolean) {
+        _state.update {
+            it.copy(
+                passwordPreviewScreenUiState = it.passwordPreviewScreenUiState.copy(
+                    showAlertDialog = newShow
+                )
+            )
+        }
+    }
+    fun updateGeneratedPassword(newPassword: String) {
+        _state.update {
+            it.copy(
+                passwordPreviewScreenUiState = it.passwordPreviewScreenUiState.copy(
+                    password = it.passwordPreviewScreenUiState.password.copy(
+                        content = newPassword
+                    )
+                )
+            )
+        }
+    }
+
+    // updates ui -- configuration screen
     fun updateLength(newLength: Int) {
 
         _state.update {
