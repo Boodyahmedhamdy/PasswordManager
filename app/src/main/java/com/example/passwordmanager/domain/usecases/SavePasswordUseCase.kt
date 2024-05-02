@@ -1,21 +1,17 @@
 package com.example.passwordmanager.domain.usecases
 
 import com.example.passwordmanager.data.PasswordDAO
-import com.example.passwordmanager.data.PasswordEntity
+import com.example.passwordmanager.domain.models.Password
+import com.example.passwordmanager.mappers.toEntity
 import javax.inject.Inject
-import kotlin.random.Random
 
 class SavePasswordUseCase @Inject constructor(
     private val passwordDAO: PasswordDAO
 ) {
 
-    operator fun invoke(password: String) {
-        val randomID = Random.nextInt(1000)
+    operator fun invoke(password: Password) {
         passwordDAO.addPassword(
-            PasswordEntity(
-                label = "generatedPassword-${randomID}",
-                content = password
-            )
+            password.toEntity()
         )
     }
 
