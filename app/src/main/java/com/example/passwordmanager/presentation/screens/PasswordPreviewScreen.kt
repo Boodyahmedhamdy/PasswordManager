@@ -1,10 +1,8 @@
 package com.example.passwordmanager.presentation.screens
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.Button
@@ -15,15 +13,36 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.passwordmanager.presentation.components.SaveLabelDialog
 import com.example.passwordmanager.presentation.states.PasswordPreviewScreenUiState
 
 @Composable
 fun PasswordPreviewScreen(
     state: PasswordPreviewScreenUiState,
     modifier: Modifier = Modifier,
-    onClickSavePassword: (password: String) -> Unit = {},
-    onClickReGenerate: () -> Unit = {}
+    onClickSavePassword: () -> Unit = {},
+    onClickReGenerate: () -> Unit = {},
+    onDialogLabelValueChanged: (String) -> Unit = {},
+    onDialogDismissRequest: () -> Unit = {},
+    onDialogConfirmationButtonClicked: () -> Unit = {},
+    onDismissButtonClicked: () -> Unit = {}
 ) {
+
+
+    if(state.showAlertDialog) {
+        SaveLabelDialog(
+            value = state.password.label,
+            onValueChanged = { onDialogLabelValueChanged(it) },
+            onDismissRequest = {
+                onDialogDismissRequest()
+            },
+            onConfirmButtonClicked = {
+                onDialogConfirmationButtonClicked()
+            },
+            onDismissButtonClicked = {
+                onDismissButtonClicked()
+            })
+    }
 
     Column(
         modifier = modifier.fillMaxSize(),
@@ -34,7 +53,7 @@ fun PasswordPreviewScreen(
         // password
         Text(text = "the Generated Password is", style = MaterialTheme.typography.labelLarge)
 
-        Text(text = state.password, style = MaterialTheme.typography.headlineMedium)
+        Text(text = state.password.content, style = MaterialTheme.typography.headlineMedium)
 
 
         // row contains 2 buttons
@@ -46,10 +65,9 @@ fun PasswordPreviewScreen(
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             // save button
-            Button(onClick = {
-                val password = state.password
-                onClickSavePassword(password)
-            }) {
+            Button(
+                onClick = { onClickSavePassword() }
+            ) {
                 Text(text = "Save")
             }
 
@@ -65,5 +83,5 @@ fun PasswordPreviewScreen(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun PasswordPreviewScreenPreview() {
-    PasswordPreviewScreen(state = PasswordPreviewScreenUiState("thisdflksjdflksdfj"))
+//    PasswordPreviewScreen(state = PasswordPreviewScreenUiState("thisdflksjdflksdfj"))
 }
