@@ -29,7 +29,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.passwordmanager.data.PasswordDAO
 import com.example.passwordmanager.presentation.screens.HomeScreen
 import com.example.passwordmanager.presentation.screens.PasswordConfigurationScreen
 import com.example.passwordmanager.presentation.screens.PasswordDetailsScreen
@@ -194,8 +193,20 @@ fun PasswordManagerApp() {
                         )
                     },
                     onClickSavePassword = {
-                        passwordGenerationViewModel.savePassword(it)
-                        navController.navigate(ScreenRoutes.HomeScreen.route)
+                        passwordGenerationViewModel.showAlertDialog()
+                    },
+                    onDialogLabelValueChanged = {
+                        passwordGenerationViewModel.updateGeneratedPasswordLabel(it)
+                    },
+                    onDialogDismissRequest = {
+                        passwordGenerationViewModel.hideAlertDialog()
+                    },
+                    onDismissButtonClicked = {
+                         passwordGenerationViewModel.hideAlertDialog()
+                    },
+                    onDialogConfirmationButtonClicked = {
+                        passwordGenerationViewModel.savePassword()
+                        navController.popBackStack(ScreenRoutes.HomeScreen.route, inclusive = false)
                     }
                 )
             }
