@@ -42,6 +42,13 @@ class PasswordGenerationViewModel @Inject constructor(
         updateGeneratedPassword(password)
     }
 
+    // updates ui -- both screens
+    fun resetProcess() {
+        _state.update {
+            PasswordGenerationUiState()
+        }
+    }
+
     // updates ui -- preview screen
     fun updateGeneratedPasswordLabel(newLabel: String) {
         _state.update {
