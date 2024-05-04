@@ -7,12 +7,10 @@ import com.example.passwordmanager.mappers.toUiState
 import com.example.passwordmanager.presentation.states.HomeScreenUiState
 import com.example.passwordmanager.presentation.states.PasswordUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,16 +28,22 @@ class HomeScreenViewModel @Inject constructor(
 
 
     init {
+        watchPasswords()
+    }
+
+    fun watchPasswords() {
         viewModelScope.launch {
-            updateIsLoading(true)
-            withContext(Dispatchers.IO) {
-                val passwords = getAllPasswordsUseCase.invoke()
-                withContext(Dispatchers.Main) {
-                    updatePasswords(passwords.map {
-                        it.toUiState()
-                    })
-                    updateIsLoading(false)
-                }
+            getAllPasswordsUseCase.invoke().collect {
+                updateIsLoading(true)
+                println("isloading == true")
+                updatePasswords(
+                    it.map { password ->
+                        password.toUiState()
+                    }
+                )
+                println("passwords are ready")
+                updateIsLoading(false)
+                println("isloading == false")
             }
         }
     }
@@ -58,5 +62,4 @@ class HomeScreenViewModel @Inject constructor(
             )
         }
     }
-
 }
