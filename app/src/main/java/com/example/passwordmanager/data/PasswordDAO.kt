@@ -5,12 +5,13 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface PasswordDAO {
 
     @Query("SELECT * FROM PASSWORDS")
-    fun getAllPasswords(): List<PasswordEntity>
+    fun getAllPasswords(): Flow<List<PasswordEntity>>
 
     @Query("SELECT * FROM PASSWORDS WHERE id = :id")
     fun getPasswordById(id: Int): PasswordEntity?
