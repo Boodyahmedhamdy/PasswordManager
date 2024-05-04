@@ -12,7 +12,7 @@ class GetAllPasswordsUseCase @Inject constructor(
     private val passwordDAO: PasswordDAO
 ) {
 
-    suspend fun invoke(): Flow<List<Password>> {
+    fun invoke(): Flow<List<Password>> {
 //        return passwordDAO.getAllPasswords().map {
 //            Password(id = it.id, content = it.content, label = it.label, imagePath = it.imagePath)
 //        }
