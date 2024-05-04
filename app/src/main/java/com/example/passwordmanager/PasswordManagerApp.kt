@@ -111,7 +111,10 @@ fun PasswordManagerApp() {
                 ScreenRoutes.HomeScreen.route,
                 enterTransition = {
                     slideInVertically(
-                        tween(2000)
+                        tween(2000),
+                        initialOffsetY = {
+                            it / 2
+                        }
                     ) + fadeIn(tween(2000))
                 },
                 exitTransition = {
@@ -146,7 +149,10 @@ fun PasswordManagerApp() {
                 ScreenRoutes.PasswordConfigurationScreen.route,
                 enterTransition = {
                     slideInVertically(
-                        tween(2000)
+                        tween(2000),
+                        initialOffsetY = {
+                            it / 2
+                        }
                     ) + fadeIn(tween(2000))
                 },
                 exitTransition = {
@@ -183,7 +189,20 @@ fun PasswordManagerApp() {
             }
 
             // preview
-            composable(ScreenRoutes.PasswordPreviewScreen.route) {
+            composable(
+                ScreenRoutes.PasswordPreviewScreen.route,
+                enterTransition = {
+                    slideInVertically(
+                        tween(2000),
+                        initialOffsetY = {
+                            it / 2
+                        }
+                    ) + fadeIn(tween(2000))
+                },
+                exitTransition = {
+                    slideOutVertically(tween(2000)) + fadeOut(tween(2000))
+                }
+            ) {
                 PasswordPreviewScreen(
                     state = passwordGenerationState.value.passwordPreviewScreenUiState,
                     modifier = Modifier.padding(paddingValues),
