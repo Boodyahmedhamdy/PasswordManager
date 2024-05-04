@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Settings
@@ -16,6 +17,8 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -51,9 +54,20 @@ fun PasswordManagerApp() {
     val navController = rememberNavController()
     Scaffold(
         topBar = {
-            TopAppBar(title = {
-                Text(text = stringResource(R.string.home))
-            }) },
+            TopAppBar(
+                title = { Text(text = stringResource(R.string.home)) },
+                actions = {
+                    IconButton(onClick = {
+                        // function to delete goes here
+                    }) {
+                        Icon(
+                            imageVector = Icons.Default.Delete,
+                            contentDescription = "",
+                            tint = MaterialTheme.colorScheme.error
+                        )
+                    }
+                }
+            )},
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
