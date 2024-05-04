@@ -207,6 +207,7 @@ fun PasswordManagerApp() {
                     onDialogConfirmationButtonClicked = {
                         passwordGenerationViewModel.savePassword()
                         navController.popBackStack(ScreenRoutes.HomeScreen.route, inclusive = false)
+                        passwordGenerationViewModel.resetProcess()
                     }
                 )
             }
