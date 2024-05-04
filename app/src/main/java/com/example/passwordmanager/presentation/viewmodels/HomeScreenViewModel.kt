@@ -33,9 +33,8 @@ class HomeScreenViewModel @Inject constructor(
 
     fun watchPasswords() {
         viewModelScope.launch {
+            updateIsLoading(true)
             getAllPasswordsUseCase.invoke().collect {
-                updateIsLoading(true)
-                println("isloading == true")
                 updatePasswords(
                     it.map { password ->
                         password.toUiState()
@@ -43,7 +42,6 @@ class HomeScreenViewModel @Inject constructor(
                 )
                 println("passwords are ready")
                 updateIsLoading(false)
-                println("isloading == false")
             }
         }
     }
