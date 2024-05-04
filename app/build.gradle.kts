@@ -91,6 +91,8 @@ dependencies {
     // navigation with hilt
     implementation(libs.androidx.hilt.navigation.compose)
 
+    // datastore
+    implementation(libs.androidx.datastore.preferences)
 }
 
 // Allow references to generated code
