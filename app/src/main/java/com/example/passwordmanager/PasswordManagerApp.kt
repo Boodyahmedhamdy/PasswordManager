@@ -44,6 +44,7 @@ import com.example.passwordmanager.presentation.screens.SecurityGateScreen
 import com.example.passwordmanager.presentation.utils.getScreenFromRoute
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
 import com.example.passwordmanager.presentation.viewmodels.PasswordGenerationViewModel
+import com.example.passwordmanager.presentation.viewmodels.ScaffoldViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,6 +54,8 @@ fun PasswordManagerApp() {
 
     val passwordGenerationViewModel: PasswordGenerationViewModel = hiltViewModel()
     val passwordGenerationState = passwordGenerationViewModel.state.collectAsState()
+
+    val scaffoldViewModel: ScaffoldViewModel = hiltViewModel()
 
     val navController = rememberNavController()
     // to track current screen
@@ -67,6 +70,7 @@ fun PasswordManagerApp() {
                     actions = {
                         IconButton(onClick = {
                             // function to delete goes here
+                            scaffoldViewModel.deleteAllPasswords()
                         }) {
                             Icon(
                                 imageVector = Icons.Default.Delete,
