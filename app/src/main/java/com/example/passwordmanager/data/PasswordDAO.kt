@@ -28,4 +28,6 @@ interface PasswordDAO {
     fun deletePassword(passwordEntity: PasswordEntity)
     @Query("DELETE FROM PASSWORDS WHERE id = :id")
     fun deletePasswordById(id: Int)
+    @Query("DELETE FROM PASSWORDS")
+    suspend fun deleteAllPasswords()
 }
