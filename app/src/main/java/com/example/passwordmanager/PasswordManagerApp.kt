@@ -1,5 +1,6 @@
 package com.example.passwordmanager
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -25,12 +26,13 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.passwordmanager.presentation.screens.HomeScreen
 import com.example.passwordmanager.presentation.screens.PasswordConfigurationScreen
@@ -39,6 +41,7 @@ import com.example.passwordmanager.presentation.screens.PasswordEditScreen
 import com.example.passwordmanager.presentation.screens.PasswordPreviewScreen
 import com.example.passwordmanager.presentation.screens.ScreenRoutes
 import com.example.passwordmanager.presentation.screens.SecurityGateScreen
+import com.example.passwordmanager.presentation.utils.getScreenFromRoute
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
 import com.example.passwordmanager.presentation.viewmodels.PasswordGenerationViewModel
 
@@ -52,66 +55,76 @@ fun PasswordManagerApp() {
     val passwordGenerationState = passwordGenerationViewModel.state.collectAsState()
 
     val navController = rememberNavController()
+    // to track current screen
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    val currentScreen = getScreenFromRoute(backStackEntry?.destination?.route ?: "")
+
     Scaffold(
         topBar = {
-            TopAppBar(
-                title = { Text(text = stringResource(R.string.home)) },
-                actions = {
-                    IconButton(onClick = {
-                        // function to delete goes here
-                    }) {
-                        Icon(
-                            imageVector = Icons.Default.Delete,
-                            contentDescription = "",
-                            tint = MaterialTheme.colorScheme.error
-                        )
+            AnimatedVisibility(visible = currentScreen.hasTopBar) {
+                TopAppBar(
+                    title = { Text(text = currentScreen.title) },
+                    actions = {
+                        IconButton(onClick = {
+                            // function to delete goes here
+                        }) {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = "",
+                                tint = MaterialTheme.colorScheme.error
+                            )
+                        }
                     }
-                }
-            )},
+                )
+            }},
         floatingActionButton = {
-            FloatingActionButton(
-                onClick = {
-                    navController.navigate(ScreenRoutes.PasswordConfigurationScreen.route)
+            AnimatedVisibility(visible = currentScreen.hasFabButton) {
+                FloatingActionButton(
+                    onClick = {
+                        navController.navigate(ScreenRoutes.PasswordConfigurationScreen.route)
+                    }
+                ) {
+                    Icon(imageVector = Icons.Default.Add, contentDescription = "add new password")
                 }
-            ) {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "add new password")
             }
         },
         bottomBar = {
-            BottomAppBar(
-                actions = {
-                    NavigationBarItem(
-                        selected = true,
-                        onClick = { /*TODO*/ },
-                        icon = {
-                            Icon(
-                                imageVector = Icons.Default.Home,
-                                contentDescription = "Home"
-                            )
-                        }
-                    )
-                    NavigationBarItem(
-                        selected = false,
-                        onClick = { /*TODO*/ },
-                        icon = {
-                            Icon(
-                                imageVector = Icons.Default.Lock,
-                                contentDescription = "Home"
-                            )
-                        }
-                    )
-                    NavigationBarItem(
-                        selected = false,
-                        onClick = { /*TODO*/ },
-                        icon = {
-                            Icon(
-                                imageVector = Icons.Default.Settings,
-                                contentDescription = "Home"
-                            )
-                        }
-                    )
+            AnimatedVisibility(visible = currentScreen.hasBottomBar) {
+                BottomAppBar(
+                    actions = {
+                        NavigationBarItem(
+                            selected = true,
+                            onClick = { /*TODO*/ },
+                            icon = {
+                                Icon(
+                                    imageVector = Icons.Default.Home,
+                                    contentDescription = "Home"
+                                )
+                            }
+                        )
+                        NavigationBarItem(
+                            selected = false,
+                            onClick = { /*TODO*/ },
+                            icon = {
+                                Icon(
+                                    imageVector = Icons.Default.Lock,
+                                    contentDescription = "Home"
+                                )
+                            }
+                        )
+                        NavigationBarItem(
+                            selected = false,
+                            onClick = { /*TODO*/ },
+                            icon = {
+                                Icon(
+                                    imageVector = Icons.Default.Settings,
+                                    contentDescription = "Home"
+                                )
+                            }
+                        )
 
-            })
+                })
+            }
         }
 
     ) { paddingValues ->
