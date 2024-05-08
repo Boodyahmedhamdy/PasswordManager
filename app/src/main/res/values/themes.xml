@@ -2,4 +2,11 @@
 <resources>
 
     <style name="Theme.PasswordManager" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.SplashScreenPasswordManager" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenIconBackgroundColor"> @color/splash_screen_bg_color </item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/lock_lottie</item>
+        <item name="postSplashScreenTheme">@style/Theme.PasswordManager</item>
+    </style>
+
 </resources>
