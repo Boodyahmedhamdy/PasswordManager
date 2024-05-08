@@ -93,6 +93,10 @@ dependencies {
 
     // datastore
     implementation(libs.androidx.datastore.preferences)
+
+    // lottie files
+    // splash screen
+    implementation(libs.androidx.core.splashscreen)
 }
 
 // Allow references to generated code
