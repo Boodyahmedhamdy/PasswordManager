@@ -51,7 +51,7 @@ fun PasswordPreviewScreen(
     ) {
 
         // password
-        Text(text = "the Generated Password is", style = MaterialTheme.typography.labelLarge)
+        Text(text = "the Generated Password is", style = MaterialTheme.typography.bodyLarge)
 
         Text(text = state.password.content, style = MaterialTheme.typography.headlineMedium)
 
@@ -64,17 +64,18 @@ fun PasswordPreviewScreen(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
+            // regenerate button
+            OutlinedButton(onClick = {
+                onClickReGenerate()
+            }) {
+                Text(text = "ReGenerate")
+            }
+
             // save button
             Button(
                 onClick = { onClickSavePassword() }
             ) {
                 Text(text = "Save")
-            }
-
-            OutlinedButton(onClick = {
-                onClickReGenerate()
-            }) {
-                Text(text = "ReGenerate")
             }
         }
     }
@@ -83,5 +84,5 @@ fun PasswordPreviewScreen(
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
 private fun PasswordPreviewScreenPreview() {
-//    PasswordPreviewScreen(state = PasswordPreviewScreenUiState("thisdflksjdflksdfj"))
+    PasswordPreviewScreen(state = PasswordPreviewScreenUiState(false))
 }
