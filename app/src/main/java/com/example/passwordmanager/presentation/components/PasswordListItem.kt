@@ -75,8 +75,8 @@ private fun PasswordListItemPreview() {
 
     PasswordManagerTheme {
         Column {
-            PasswordListItem(state = state, onClick = { /*TODO*/ })
-            PasswordListItem(state = state, onClick = { /*TODO*/ })
+            PasswordListItem(state = state, onClick = {  })
+            PasswordListItem(state = state, onClick = {  })
         }
     }
 }
