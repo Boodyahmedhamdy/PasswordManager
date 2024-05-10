@@ -30,10 +30,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.passwordmanager.presentation.screens.HomeScreen
 import com.example.passwordmanager.presentation.screens.PasswordConfigurationScreen
 import com.example.passwordmanager.presentation.screens.PasswordDetailsScreen
@@ -42,6 +44,7 @@ import com.example.passwordmanager.presentation.screens.PasswordPreviewScreen
 import com.example.passwordmanager.presentation.screens.ScreenRoutes
 import com.example.passwordmanager.presentation.screens.SecurityGateScreen
 import com.example.passwordmanager.presentation.utils.getScreenFromRoute
+import com.example.passwordmanager.presentation.viewmodels.EditPasswordViewModel
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
 import com.example.passwordmanager.presentation.viewmodels.PasswordGenerationViewModel
 import com.example.passwordmanager.presentation.viewmodels.ScaffoldViewModel
@@ -56,6 +59,8 @@ fun PasswordManagerApp() {
     val passwordGenerationState = passwordGenerationViewModel.state.collectAsState()
 
     val scaffoldViewModel: ScaffoldViewModel = hiltViewModel()
+
+
 
     val navController = rememberNavController()
     // to track current screen
@@ -156,8 +161,11 @@ fun PasswordManagerApp() {
             ) {
                 HomeScreen(
                     state = state.value,
-                    onPasswordListItemClicked = { /*TODO*/ },
-                    onPasswordListItemCopyClicked = { /*TODO*/ },
+                    onPasswordListItemClicked = {
+                        navController.navigate(
+                            route = "${ScreenRoutes.PasswordDetailsScreen.route}/${it}"
+                        )
+                    },
                     modifier = Modifier
                         .padding(paddingValues)
                         .fillMaxSize())
@@ -167,8 +175,23 @@ fun PasswordManagerApp() {
                 SecurityGateScreen()
             }
             // details
-            composable(ScreenRoutes.PasswordDetailsScreen.route) {
-                PasswordDetailsScreen()
+            composable(
+                route = "${ScreenRoutes.PasswordDetailsScreen.route}/{passwordId}",
+                arguments = listOf(
+                    navArgument("passwordId") { type = NavType.IntType }
+                )
+            ) {backStackEntry ->
+                // TODO: LATE CREATION FOR VIEWMODEL
+                val editPasswordViewModel: EditPasswordViewModel = hiltViewModel()
+                val editPasswordUiState = editPasswordViewModel.state.collectAsState()
+
+//                editPasswordViewModel.updatePasswordId(
+//                    backStackEntry.arguments?.getInt("passwordId") ?: -1
+//                )
+                PasswordDetailsScreen(
+                    state = editPasswordUiState.value.editPasswordScreenUiState.password,
+                    modifier = Modifier.padding(paddingValues).fillMaxSize()
+                )
             }
             // edit
             composable(ScreenRoutes.PasswordEditScreen.route) {
