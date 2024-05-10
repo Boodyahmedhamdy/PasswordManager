@@ -25,7 +25,10 @@ sealed class ScreenRoutes(
         hasFabButton = false
     )
     data object PasswordDetailsScreen: ScreenRoutes(
-        "passwordDetailsScreen"
+        "passwordDetailsScreen",
+        hasBottomBar = false,
+        hasFabButton = false,
+        title = "Password Details"
     )
     data object PasswordEditScreen: ScreenRoutes("passwordEditScreen")
 
