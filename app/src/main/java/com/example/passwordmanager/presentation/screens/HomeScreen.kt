@@ -6,8 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -22,8 +20,7 @@ import com.example.passwordmanager.presentation.states.HomeScreenUiState
 @Composable
 fun HomeScreen(
     state: HomeScreenUiState,
-    onPasswordListItemClicked: () -> Unit,
-    onPasswordListItemCopyClicked: () -> Unit,
+    onPasswordListItemClicked: (id: Int) -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -54,8 +51,7 @@ fun HomeScreen(
             items(state.passwords) {
                 PasswordListItem(
                     it,
-                    onClick = onPasswordListItemClicked,
-                    onCopyClicked = onPasswordListItemCopyClicked
+                    onClick = { onPasswordListItemClicked(it.id) },
                 )
             }
         }
