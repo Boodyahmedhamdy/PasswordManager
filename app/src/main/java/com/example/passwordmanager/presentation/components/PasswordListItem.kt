@@ -26,7 +26,6 @@ import com.example.passwordmanager.ui.theme.PasswordManagerTheme
 fun PasswordListItem(
     state: PasswordUiState,
     onClick: () -> Unit,
-    onCopyClicked: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Row(
@@ -42,7 +41,9 @@ fun PasswordListItem(
         Image(
             imageVector = Icons.Rounded.Face,
             contentDescription = "",
-            modifier = Modifier.padding(8.dp).size(44.dp)
+            modifier = Modifier
+                .padding(8.dp)
+                .size(44.dp)
         )
         // column
         Column(
@@ -74,8 +75,8 @@ private fun PasswordListItemPreview() {
 
     PasswordManagerTheme {
         Column {
-            PasswordListItem(state = state, onClick = { /*TODO*/ }, onCopyClicked = { /*TODO*/ })
-            PasswordListItem(state = state, onClick = { /*TODO*/ }, onCopyClicked = { /*TODO*/ })
+            PasswordListItem(state = state, onClick = { /*TODO*/ })
+            PasswordListItem(state = state, onClick = { /*TODO*/ })
         }
     }
 }
