@@ -97,6 +97,10 @@ dependencies {
     // lottie files
     // splash screen
     implementation(libs.androidx.core.splashscreen)
+
+    // biometric authentication feature
+    implementation(libs.androidx.biometric)
+
 }
 
 // Allow references to generated code
