@@ -32,4 +32,8 @@ sealed class ScreenRoutes(
     )
     data object PasswordEditScreen: ScreenRoutes("passwordEditScreen")
 
+    data object SettingsScreen: ScreenRoutes("settingsScreen")
+
+    data object PasswordRatingScreen: ScreenRoutes("passwordRatingScreen")
+
 }
