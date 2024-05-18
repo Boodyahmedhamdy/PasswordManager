@@ -12,15 +12,16 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.RateReview
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material3.BottomAppBar
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.RateReview
+import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -36,13 +37,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.passwordmanager.presentation.components.BottomBarNavigation
+import com.example.passwordmanager.presentation.components.TabBarItem
 import com.example.passwordmanager.presentation.screens.HomeScreen
 import com.example.passwordmanager.presentation.screens.PasswordConfigurationScreen
 import com.example.passwordmanager.presentation.screens.PasswordDetailsScreen
 import com.example.passwordmanager.presentation.screens.PasswordEditScreen
 import com.example.passwordmanager.presentation.screens.PasswordPreviewScreen
+import com.example.passwordmanager.presentation.screens.PasswordRatingScreen
 import com.example.passwordmanager.presentation.screens.ScreenRoutes
 import com.example.passwordmanager.presentation.screens.SecurityGateScreen
+import com.example.passwordmanager.presentation.screens.SettingsScreen
 import com.example.passwordmanager.presentation.utils.getScreenFromRoute
 import com.example.passwordmanager.presentation.viewmodels.EditPasswordViewModel
 import com.example.passwordmanager.presentation.viewmodels.HomeScreenViewModel
@@ -66,6 +71,24 @@ fun PasswordManagerApp() {
     // to track current screen
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = getScreenFromRoute(backStackEntry?.destination?.route ?: "")
+
+    val bottomBarItems = listOf(
+        TabBarItem(
+            "home", Icons.Filled.Home, Icons.Outlined.Home, onClick = {
+                navController.navigate(ScreenRoutes.HomeScreen.route)
+            }
+        ),
+        TabBarItem(
+            "Locks", Icons.Filled.RateReview, Icons.Outlined.RateReview, onClick = {
+                navController.navigate(ScreenRoutes.PasswordRatingScreen.route)
+            }
+        ),
+        TabBarItem(
+            "home", Icons.Filled.Settings, Icons.Outlined.Settings, onClick = {
+                navController.navigate(ScreenRoutes.SettingsScreen.route)
+            }
+        )
+    )
 
     Scaffold(
         topBar = {
@@ -99,40 +122,7 @@ fun PasswordManagerApp() {
         },
         bottomBar = {
             AnimatedVisibility(visible = currentScreen.hasBottomBar) {
-                BottomAppBar(
-                    actions = {
-                        NavigationBarItem(
-                            selected = true,
-                            onClick = { /*TODO*/ },
-                            icon = {
-                                Icon(
-                                    imageVector = Icons.Default.Home,
-                                    contentDescription = "Home"
-                                )
-                            }
-                        )
-                        NavigationBarItem(
-                            selected = false,
-                            onClick = { /*TODO*/ },
-                            icon = {
-                                Icon(
-                                    imageVector = Icons.Default.Lock,
-                                    contentDescription = "Home"
-                                )
-                            }
-                        )
-                        NavigationBarItem(
-                            selected = false,
-                            onClick = { /*TODO*/ },
-                            icon = {
-                                Icon(
-                                    imageVector = Icons.Default.Settings,
-                                    contentDescription = "Home"
-                                )
-                            }
-                        )
-
-                })
+                BottomBarNavigation(tabBarItem = bottomBarItems)
             }
         }
 
@@ -174,6 +164,20 @@ fun PasswordManagerApp() {
             composable(ScreenRoutes.SecurityGateScreen.route) {
                 SecurityGateScreen()
             }
+
+            // rating
+            composable(ScreenRoutes.PasswordRatingScreen.route) {
+                PasswordRatingScreen(
+                    modifier = Modifier.padding(paddingValues).fillMaxSize()
+                )
+            }
+
+            // settings
+            composable(ScreenRoutes.SettingsScreen.route) {
+                SettingsScreen(
+                    modifier = Modifier.padding(paddingValues).fillMaxSize()
+                )
+            }
             // details
             composable(
                 route = "${ScreenRoutes.PasswordDetailsScreen.route}/{passwordId}",
@@ -190,7 +194,9 @@ fun PasswordManagerApp() {
 //                )
                 PasswordDetailsScreen(
                     state = editPasswordUiState.value.editPasswordScreenUiState.password,
-                    modifier = Modifier.padding(paddingValues).fillMaxSize()
+                    modifier = Modifier
+                        .padding(paddingValues)
+                        .fillMaxSize()
                 )
             }
             // edit
