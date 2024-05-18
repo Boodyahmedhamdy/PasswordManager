@@ -5,12 +5,11 @@ import androidx.compose.ui.Modifier
 import com.example.passwordmanager.presentation.components.PlaceholderScreen
 
 @Composable
-fun PasswordEditScreen(
+fun SettingsScreen(
     modifier: Modifier = Modifier
 ) {
     PlaceholderScreen(
-        title = "Edit Password Screen",
+        title = "Settings Screen .. coming soon",
         modifier = modifier
     )
-
 }
