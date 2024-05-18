@@ -195,7 +195,9 @@ fun PasswordManagerApp() {
             }
             // edit
             composable(ScreenRoutes.PasswordEditScreen.route) {
-                PasswordEditScreen()
+                PasswordEditScreen(
+                    modifier = Modifier.padding(paddingValues)
+                )
             }
 
             // config
