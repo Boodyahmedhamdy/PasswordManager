@@ -1,6 +1,9 @@
 package com.example.passwordmanager.presentation.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -11,12 +14,21 @@ import androidx.compose.ui.Modifier
 fun PlaceholderScreen(
     title: String,
     modifier: Modifier = Modifier,
+    onClick: () -> Unit = {}
 ) {
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center
     ) {
-        Text(text = title, style = MaterialTheme.typography.headlineLarge)
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(text = title, style = MaterialTheme.typography.headlineLarge)
+            Button(onClick = { onClick() }) {
+                Text(text = "Just Click Action")
+            }
+        }
     }
 
 
